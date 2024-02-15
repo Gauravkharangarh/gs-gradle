@@ -1,8 +1,14 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'application'
-
-mainClassName = 'hello.HelloWorld'
+plugins {
+    id 'application'
+    id 'java'
+    id 'eclipse'
+}
+application {
+    applicationDefaultJvmArgs = ['-Dgreeting.language=en']
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
 
 // tag::repositories[]
 repositories { 
@@ -12,14 +18,13 @@ repositories {
 
 // tag::jar[]
 jar {
+    mainClassName = 'hello.HelloWorld'
     archiveBaseName = 'gs-gradle'
     archiveVersion =  '0.1.0'
 }
 // end::jar[]
 
 // tag::dependencies[]
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 dependencies {
     implementation "joda-time:joda-time:2.2"
