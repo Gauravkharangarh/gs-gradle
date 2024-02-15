@@ -1,1 +1,10 @@
-apply plugin: 'java'
+plugins {
+    id 'java'
+    id 'application'
+}
+application {
+    applicationDefaultJvmArgs = ['-Dgreeting.language=en']
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
